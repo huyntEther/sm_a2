@@ -14,5 +14,17 @@ summary(e3_m_x2x3)
 summary(e3_m_x1x2x3)
 e3_m_x2x1 <- lm(e3_y ~ e3_x2+e3_x1)
 summary(e3_m_x2x1)
+#####3.6
+#matrix_y <- as.data.frame(matrix(e3_y,ncol=1,rowname="y"))
+n <- length(e3_y)
+matrix_y <- matrix(e3_y,ncol=1)
+#matrix_x <- as.data.frame(matrix(data= rbind(e3_x1,e3_x2,e3_x3),nrow=3))
+#matrix_x <- as.data.frame(matrix(data= rbind(c(1,e3_x1),c(1,e3_x2),c(1,e3_x3)),nrow=3))
+#matrix_x <- matrix(data= rbind(c(1,e3_x1),c(1,e3_x2),c(1,e3_x3)),nrow=3)
+matrix_x <- matrix(c(c(rep(1,n)),e3_x1,e3_x2,e3_x3),ncol=4)
 
 
+mx1 <- lm(e3_y~e3_x1)
+mx132 <-lm(e3_y~e3_x1+e3_x3+e3_x2)
+summary(mx1)
+summary(mx132)
