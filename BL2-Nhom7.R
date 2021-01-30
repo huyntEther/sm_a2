@@ -104,6 +104,10 @@ model_sigma <- out$sigma
 model_sigma **2
 ##### 3.9
 qnorm(1-0.05/2)*model_sigma / sqrt(n)
+lower_39 <-(n-1)*(out$sigma **2) / qchisq(1-0.05/2,df=n-1)
+upper_39 <-(n-1)*(out$sigma **2) / qchisq(0.05/2,df=n-1)
+#c2
+left_val <- (n-1)* 
 ##### 3.10
 M1 <- lm(y ~ x1)
 anova(M1)
